@@ -1,0 +1,2 @@
+class PokemenController < ApplicationController
+end
