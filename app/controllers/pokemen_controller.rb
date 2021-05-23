@@ -1,14 +1,15 @@
 
-
 class PokemenController < ApplicationController
     before_action :set_pokemen, only: [:show, :update, :destroy]
 
     # GET /pokemen
     def index
-      @pokemens = Pokeman.all
+     #@pokemens = Pokeman.all
+     @pokemens = Pokeman.order(:id).page params[:page]
       json_response(@pokemens)
     end
-  
+
+
     # POST /pokemen
     def create
       @pokemen = Pokeman.create!(pokemen_params)
