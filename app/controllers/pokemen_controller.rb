@@ -4,7 +4,6 @@ class PokemenController < ApplicationController
     before_action :set_pokemen, only: [:show, :update, :destroy]
 
     # GET /pokemen
-    
     def index
       @pokemens = Pokeman.all
       json_response(@pokemens)
@@ -24,7 +23,7 @@ class PokemenController < ApplicationController
   
     # PUT /pokemen/:id
     def update
-      @pokemen.update(Pokeman_params)
+      @pokemen.update(pokemen_params)
       head :no_content
     end
   
@@ -38,7 +37,8 @@ class PokemenController < ApplicationController
   
     def pokemen_params
       # whitelist params
-      params.permit(:title, :created_by)
+      params.permit( :name, :type1 ,:type2 ,:total ,:Hp , :Attack, :Defense ,:Sp_Atk, :Sp_Def, :Speed, :Generation, :Legendary, :created_at, :updated_at)
+      
     end
   
     def set_pokemen
