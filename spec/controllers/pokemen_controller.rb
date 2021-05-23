@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe PokemenController, type: :controller do
+class PokemenController < ApplicationController
     before_action :set_pokemen, only: [:show, :update, :destroy]
 
     # GET /pokemen
+    describe 'GET /pokemen' do
     def index
       @pokemen = pokemen.all
       json_response(@pokemen)
@@ -16,6 +17,7 @@ RSpec.describe PokemenController, type: :controller do
     end
   
     # GET /pokemen/:id
+    describe 'GET /pokemen/:id' do
     def show
       json_response(@pokemen)
     end
